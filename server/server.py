@@ -7,6 +7,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
+URL = os.environ['SHARE_CLI_URL']
 app.config['UPLOAD_FOLDER'] = '/tmp/share-cli-uploads'
 
 def gen_safe_filename(filename):
@@ -20,7 +21,7 @@ def upload():
     file = request.files['file']
     filename = gen_safe_filename(file.filename)
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return "http://localhost:5000/" + filename + '\n'
+    return URL + filename + '\n'
 
 @app.route("/<filename>")
 def download(filename):

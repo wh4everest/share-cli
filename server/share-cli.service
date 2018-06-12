@@ -9,7 +9,6 @@ Environment=SHARE_CLI_URL=https://share-cli.andrejt.com/
 ExecStart=/home/whoeverest/.local/bin/flask run
 WorkingDirectory=/home/whoeverest/share-cli.andrejt.com/server
 Restart=on-failure
-RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
